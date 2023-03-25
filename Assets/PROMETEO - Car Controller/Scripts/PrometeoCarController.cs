@@ -266,7 +266,14 @@ public class PrometeoCarController : MonoBehaviour
     void Update()
     {
 
-      //CAR DATA
+
+      // We call the method AnimateWheelMeshes() in order to match the wheel collider movements with the 3D meshes of the wheels.
+      AnimateWheelMeshes();
+
+    }
+
+    void FixedUpdate(){
+       //CAR DATA
 
       // We determine the speed of the car.
       carSpeed = (2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60) / 1000;
@@ -364,11 +371,6 @@ public class PrometeoCarController : MonoBehaviour
         }
 
       }
-
-
-      // We call the method AnimateWheelMeshes() in order to match the wheel collider movements with the 3D meshes of the wheels.
-      AnimateWheelMeshes();
-
     }
 
     // This method converts the car speed data from float to string, and then set the text of the UI carSpeedText with this value.
