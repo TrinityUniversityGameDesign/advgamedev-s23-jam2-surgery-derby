@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KillPeople : MonoBehaviour
 {
+    public Scores player;
     Rigidbody rb;
     Vector3 startPos;
     Quaternion startRot;
@@ -32,6 +33,7 @@ public class KillPeople : MonoBehaviour
 		}
     private IEnumerator HitThenDie() {
         yield return new WaitForSeconds(6);
+        player.addtoscore();
         Destroy(this.gameObject);
     }
 }
