@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KillPeople : MonoBehaviour
 {
+    public SurgController surg;
     public Scores player;
     Rigidbody rb;
     Vector3 startPos;
@@ -32,6 +33,9 @@ public class KillPeople : MonoBehaviour
         StopCoroutine(HitThenDie());
 		}
     private IEnumerator HitThenDie() {
+        surg.SpawnOrgan();
+        surg.SpawnOrgan();
+        surg.SpawnOrgan();
         yield return new WaitForSeconds(6);
         player.addtoscore();
         Destroy(this.gameObject);
